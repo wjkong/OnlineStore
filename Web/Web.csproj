@@ -82,6 +82,7 @@
     <Content Include="index.html" />
     <Content Include="Pages\login.html" />
     <Content Include="Scripts\Common.js" />
+    <Content Include="Scripts\Login.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
