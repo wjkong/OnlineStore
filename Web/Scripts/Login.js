@@ -8,7 +8,6 @@
     }
 
     $('#btnLogin').click(function () {
-        debugger;
         $(this).ShowProgressIndicator();
 
         var username = $.trim($('#txtUsername').val());
@@ -31,7 +30,6 @@
                 data: param,
                 success: OnSuccess,
                 error: function (xhr, status, error) {
-                    debugger;
                     PopupValidation(error);
                 },
                 complete: function (xhr, status) {
@@ -64,15 +62,14 @@
 });
 
 function OnSuccess(data, status) {
-    debugger;
-    if (data.d == "OK") {
+    if (data == "OK") {
         if ($("#chkRememberMe").prop('checked')) {
             var username = $.trim($('#txtUsername').val());
 
             setCookie("userName", username);
         }
 
-        window.location.href = "Member/MyPhoto.aspx";
+        //window.location.href = "Member/MyPhoto.aspx";
     }
     else {
         PopupValidation("Invalid username and password");
