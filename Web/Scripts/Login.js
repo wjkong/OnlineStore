@@ -8,14 +8,16 @@
     }
 
     $('#btnLogin').click(function () {
+        debugger;
         $(this).ShowProgressIndicator();
 
         var username = $.trim($('#txtUsername').val());
         var password = $.trim($('#txtPassword').val());
+        //var response = grecaptcha.getResponse();  && response.length > 0
         var response = grecaptcha.getResponse();
 
-        if (username.length > 0 && password.length > 0 && response.length > 0) {
-            var url = "Login.aspx/LoginUser";
+        if (username.length > 0 && password.length > 0) {
+            var url = "http://localhost:2490/api/User";
 
             var param = "{ 'username': '{0}', 'password': '{1}', 'response': '{2}' }";
             param = param.format(username, password, response);
@@ -29,6 +31,7 @@
                 data: param,
                 success: OnSuccess,
                 error: function (xhr, status, error) {
+                    debugger;
                     PopupValidation(error);
                 },
                 complete: function (xhr, status) {
@@ -61,6 +64,7 @@
 });
 
 function OnSuccess(data, status) {
+    debugger;
     if (data.d == "OK") {
         if ($("#chkRememberMe").prop('checked')) {
             var username = $.trim($('#txtUsername').val());

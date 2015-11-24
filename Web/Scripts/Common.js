@@ -123,6 +123,10 @@ app.controller('mainController', function ($scope) {
 
     // create a message to display in our view
     $scope.message = 'Everyone come and see how good I look!';
+
+    $scope.isLogin = function (x) {
+        return false;
+    };
 });
 
 app.controller('aboutController', function ($scope) {
@@ -157,4 +161,8 @@ function setCookie(key, value) {
 function getCookie(key) {
     var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
     return keyValue ? keyValue[2] : null;
+}
+
+function isLogin() {
+    return true;
 }

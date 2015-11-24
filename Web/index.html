@@ -33,21 +33,19 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="index.html#/" class="navbar-brand"><span style="font-family:Script MT Bold">&nbsp;&nbsp;Online Store&nbsp;&nbsp;</span></a>
+                    <a href="#/" class="navbar-brand"><span style="font-family:Script MT Bold">&nbsp;&nbsp;Online Store&nbsp;&nbsp;</span></a>
                 </div>
                 <!-- Collection of nav links and other content for toggling -->
                 <div id="navbarCollapse" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html#/"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-                        <li><a href="index.html#/contact"><span class="glyphicon glyphicon-envelope"></span>Contact</a></li>
-                        <li><a href="index.html#/about"><span class="glyphicon glyphicon-envelope"></span>About</a></li>
+                        <li><a href="#/"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                        <li><a href="#/contact"><span class="glyphicon glyphicon-envelope"></span>Contact</a></li>
+                        <li><a href="#/about"><span class="glyphicon glyphicon-envelope"></span>About</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <!--<asp:HyperLink ID="hypLogOut" NavigateUrl="~/LogOut.aspx" runat=server><span class="glyphicon glyphicon-log-out"></span>Logout</asp:HyperLink>-->
-                            <!--<asp:HyperLink ID="hypLogin" NavigateUrl="~/Login.aspx" runat=server><span class="glyphicon glyphicon-log-in"></span>Login</asp:HyperLink>-->
-                            <a href="index.html#/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
-                            <!--<a href="Login.html"><span class="glyphicon glyphicon-log-out"></span>Logout</a>-->
+                            <a href="#/login" ng-if="!isLogin()"><span class="glyphicon glyphicon-log-in"></span>Login</a>
+                            <a href="#/Logout.html" ng-if="isLogin()"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -79,10 +77,7 @@
                 <div><small>&copy; 2015 ApiExpert.net</small></div>
             </div>
             <div class="col-sm-4 text-right hidden-xs">
-                <a href="https://jquery.com/" target=_blank><asp:Image runat=server ImageUrl="~/Images/JQuery.jpg" ID="Image3" AlternateText="JQuery" /></a>&nbsp;
-                <a href="http://www.w3.org/TR/html5/" target=_blank><asp:Image runat=server ImageUrl="~/Images/html5.png" ID="Image7" AlternateText="HTML 5" /></a>&nbsp;
-                <a href="http://getbootstrap.com/" target=_blank><asp:Image runat=server ImageUrl="~/Images/BootStrap.jpg" ID="Image4" AlternateText="Bootstrap" /></a>&nbsp;
-                <a href="#" target=_blank class=hidden-sm><asp:Image runat=server ImageUrl="~/Images/CSS3.jpg" ID="Image5" AlternateText="CSS 3" /></a>
+             
             </div>
         </div>
         <!-- Modal -->
@@ -122,6 +117,7 @@
             </div>
         </div>
     </footer>
+    <input type="hidden" name="token" value="">
 </body>
 </html>
 

@@ -22,10 +22,11 @@ namespace OnlineStore.Controllers
         }
 
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        public string Post([FromBody]string value)
         {
+            return "OK";
         }
-
+            
         // PUT api/<controller>/5
         public void Put(int id, [FromBody]string value)
         {
