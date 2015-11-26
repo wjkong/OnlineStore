@@ -16,7 +16,7 @@
         var response = grecaptcha.getResponse();
 
         if (username.length > 0 && password.length > 0) {
-            var url = "http://localhost:2490/api/User";
+            var url = "http://localhost:2490/route/User";
 
             var param = "{ 'username': '{0}', 'password': '{1}', 'response': '{2}' }";
             param = param.format(username, password, response);
