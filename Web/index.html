@@ -43,9 +43,10 @@
                         <li><a href="#/about"><span class="glyphicon glyphicon-envelope"></span>About</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#/registration" ng-if="!isLogin()"><span class="glyphicon glyphicon-user"></span>Register</a></li>        
                         <li>
                             <a href="#/login" ng-if="!isLogin()"><span class="glyphicon glyphicon-log-in"></span>Login</a>
-                            <a href="#/Logout.html" ng-if="isLogin()"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+                            <a href="#/Logout" ng-if="isLogin()"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
                         </li>
                     </ul>
                 </div>

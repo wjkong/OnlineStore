@@ -98,8 +98,10 @@ app.config(function ($routeProvider) {
              templateUrl: 'Pages/login.html',
              controller: 'loginController'
          })
-
-
+        .when('/registration', {
+            templateUrl: 'Pages/registration.html',
+            controller: 'registerController'
+        })
         // route for the about page
         .when('/about', {
             templateUrl: 'Pages/about.html',
@@ -140,6 +142,11 @@ app.controller('contactController', function ($scope) {
 app.controller('loginController', function ($scope) {
     $scope.message = 'Login .';
 });
+
+app.controller('registerController', function ($scope) {
+    $scope.message = 'register .';
+});
+
 
 function GetParameterByName(name) {
     name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
