@@ -82,6 +82,7 @@
     <Content Include="Pages\home.html" />
     <Content Include="index.html" />
     <Content Include="Pages\login.html" />
+    <Content Include="Pages\recoverPassword.html" />
     <Content Include="Pages\registration.html" />
     <Content Include="Scripts\Common.js" />
     <Content Include="Scripts\Register.js" />

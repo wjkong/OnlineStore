@@ -8,19 +8,19 @@
     }
 
     $('#btnRegister').click(function () {
-        debugger;
+
         $(this).ShowProgressIndicator();
 
         var email = $.trim($('#txtEmail').val());
         var password = $.trim($('#txtPassword').val());
-        //var response = grecaptcha.getResponse();  && response.length > 0
-        //var response = grecaptcha.getResponse();
+        var response = grecaptcha.getResponse();
+      
 
-        if (email.length > 0 && password.length > 0) {
+        if (email.length > 0 && password.length > 0 && response.length > 0) {
             var url = "http://localhost:2490/route/User";
 
-            var param = "{ 'Email': '{0}', 'Password': '{1}' }";
-            param = param.format(email, password);
+            var param = "{ 'Email': '{0}', 'Password': '{1}', 'Response': '{2}' }";
+            param = param.format(email, password, response);
             var str = [];
 
             $.ajax({
@@ -40,7 +40,7 @@
             });
         }
         else {
-            //grecaptcha.reset();
+            grecaptcha.reset();
 
             var str = [];
 
@@ -50,8 +50,8 @@
             if (password.length == 0)
                 str.push("<span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span>Password is requried<br/>");
 
-            //if (response.length == 0)
-            //    str.push("<span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span>ReCaptcha is requried<br/>");
+            if (response.length == 0)
+                str.push("<span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span>ReCaptcha is requried<br/>");
 
             $('.progressIndicator').fadeOut(100).remove();
 

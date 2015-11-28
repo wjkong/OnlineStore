@@ -10,5 +10,6 @@ namespace Kong.OnlineStore.Model
     {
         public string Email { get; set; }
         public string Password { get; set; }
+        public string Response { get; set; }
     }
 }
