@@ -17,7 +17,7 @@
         var response = "temp";
 
         if (email.length > 0 && password.length > 0 && response.length > 0) {
-            var url = "http://localhost:2490/route/User";
+            var url = "http://localhost:39725/route/User";
 
             var param = "{ 'Email': '{0}', 'Password': '{1}', 'Response': '{2}' }";
             param = param.format(email, password, response);
