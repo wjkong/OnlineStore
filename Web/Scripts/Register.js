@@ -8,13 +8,13 @@
     }
 
     $('#btnRegister').click(function () {
-
+        debugger;
         $(this).ShowProgressIndicator();
 
         var email = $.trim($('#txtEmail').val());
         var password = $.trim($('#txtPassword').val());
-        var response = grecaptcha.getResponse();
-      
+        //var response = grecaptcha.getResponse();
+        var response = "temp";
 
         if (email.length > 0 && password.length > 0 && response.length > 0) {
             var url = "http://localhost:2490/route/User";
@@ -34,13 +34,13 @@
                     PopupValidation(error);
                 },
                 complete: function (xhr, status) {
-                    grecaptcha.reset();
+                    //grecaptcha.reset();
                     $('.progressIndicator').fadeOut(100).remove();
                 }
             });
         }
         else {
-            grecaptcha.reset();
+            //grecaptcha.reset();
 
             var str = [];
 
