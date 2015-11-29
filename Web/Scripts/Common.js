@@ -103,25 +103,14 @@ app.config(function ($routeProvider) {
             templateUrl: 'Pages/registration.html',
             controller: 'registerController'
         })
-        // route for the about page
-        .when('/about', {
-            templateUrl: 'Pages/about.html',
-            controller: 'aboutController'
+        .when('/contact', {
+            templateUrl: 'Pages/contact.html',
+            controller: 'contactController'
         })
-          // route for the contact page
-        .when('/recoverPassword', {
-            templateUrl: 'Pages/recoverPassword.html',
-            controller: 'recoverPasswordController'
-        })
-          // route for the contact page
         .when('/recoverPassword', {
             templateUrl: 'Pages/recoverPassword.html',
             controller: 'recoverPasswordController'
         });
-
-      
-
-
 
     //$locationProvider.html5Mode(true);
 });
