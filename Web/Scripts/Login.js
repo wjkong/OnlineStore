@@ -8,18 +8,17 @@
     }
 
     $('#btnLogin').click(function () {
+        debugger;
         $(this).ShowProgressIndicator();
 
-        var username = $.trim($('#txtUsername').val());
+        var email = $.trim($('#txtEmail').val());
         var password = $.trim($('#txtPassword').val());
-        //var response = grecaptcha.getResponse();  && response.length > 0
-        var response = grecaptcha.getResponse();
+   
+        if (email.length > 0 && password.length > 0) {
+            var url = apiBaseUrl + "/route/User?action=Login";
 
-        if (username.length > 0 && password.length > 0) {
-            var url = "http://localhost:2490/route/User";
-
-            var param = "{ 'username': '{0}', 'password': '{1}', 'response': '{2}' }";
-            param = param.format(username, password, response);
+            var param = "{ 'email': '{0}', 'password': '{1}' }";
+            param = param.format(email, password);
             var str = [];
 
             $.ajax({
@@ -33,13 +32,11 @@
                     PopupValidation(error);
                 },
                 complete: function (xhr, status) {
-                    grecaptcha.reset();
                     $('.progressIndicator').fadeOut(100).remove();
                 }
             });
         }
         else {
-            grecaptcha.reset();
 
             var str = [];
 
@@ -62,14 +59,14 @@
 });
 
 function OnSuccess(data, status) {
-    if (data == "OK") {
+    if (data) {
         if ($("#chkRememberMe").prop('checked')) {
-            var username = $.trim($('#txtUsername').val());
+            var username = $.trim($('#txtEmail').val());
 
-            setCookie("userName", username);
+            setCookie("email", username);
         }
 
-        //window.location.href = "Member/MyPhoto.aspx";
+        window.location.href = "#/";
     }
     else {
         PopupValidation("Invalid username and password");

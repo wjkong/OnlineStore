@@ -8,7 +8,6 @@
     }
 
     $('#btnRegister').click(function () {
-        debugger;
         $(this).ShowProgressIndicator();
 
         var email = $.trim($('#txtEmail').val());
@@ -17,7 +16,7 @@
         var response = "temp";
 
         if (email.length > 0 && password.length > 0 && response.length > 0) {
-            var url = "http://localhost:39725/route/User";
+            var url = apiBaseUrl + "/route/User";
 
             var param = "{ 'Email': '{0}', 'Password': '{1}', 'Response': '{2}' }";
             param = param.format(email, password, response);
@@ -58,19 +57,19 @@
             PopupValidation(str.join(emptyStr));
         }
     });
-
-
 });
 
 function OnSuccess(data, status) {
-    if (data == "OK") {
+    if (data) {
         if ($("#chkRememberMe").prop('checked')) {
-            var username = $.trim($('#txtUsername').val());
+            var username = $.trim($('#txtEmail').val());
 
-            setCookie("userName", username);
+            setCookie("email", username);
         }
 
-        //window.location.href = "Member/MyPhoto.aspx";
+        $('#loginToken').val("Y");
+
+        window.location.href = "#/login";
     }
     else {
         PopupValidation("Invalid username and password");

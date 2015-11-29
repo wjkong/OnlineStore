@@ -9,6 +9,7 @@ var root = emptyStr;
 var linkText = "<a target=_blank href='{0}'>{1}</a>";
 var mapLink = "<span data-latitude='{0}' data-longitude='{1}' class='map text-info' data-toggle='modal' data-target='#modalMap'><span class='glyphicon glyphicon-map-marker'></span>{2}</span>";
 var imgLink = "<img src='{0}' alt=icon />";
+var apiBaseUrl = "http://localhost:39725";
 
 (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
