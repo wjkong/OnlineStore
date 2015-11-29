@@ -87,7 +87,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Pages\about.html" />
     <Content Include="Pages\contact.html" />
     <Content Include="CSS\Style.css" />
     <Content Include="Pages\home.html" />

@@ -67,7 +67,6 @@ function OnSuccess(data, status) {
         }
 
         var email = $.trim($('#txtEmail').val())
-       
 
         window.location.href = "#home";
 
