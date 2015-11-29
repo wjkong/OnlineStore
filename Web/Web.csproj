@@ -85,6 +85,7 @@
     <Content Include="Pages\recoverPassword.html" />
     <Content Include="Pages\registration.html" />
     <Content Include="Scripts\Common.js" />
+    <Content Include="Scripts\Config.js" />
     <Content Include="Scripts\Register.js" />
     <Content Include="Scripts\Login.js" />
     <Content Include="Web.config" />

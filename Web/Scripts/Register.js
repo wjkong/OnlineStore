@@ -8,6 +8,7 @@
     }
 
     $('#btnRegister').click(function () {
+        debugger;
         $(this).ShowProgressIndicator();
 
         var email = $.trim($('#txtEmail').val());
@@ -30,6 +31,7 @@
                 data: param,
                 success: OnSuccess,
                 error: function (xhr, status, error) {
+                    debugger;
                     PopupValidation(error);
                 },
                 complete: function (xhr, status) {
@@ -40,7 +42,7 @@
         }
         else {
             //grecaptcha.reset();
-
+            debugger;
             var str = [];
 
             if (email.length == 0)
@@ -60,6 +62,7 @@
 });
 
 function OnSuccess(data, status) {
+    debugger;
     if (data) {
         if ($("#chkRememberMe").prop('checked')) {
             var username = $.trim($('#txtEmail').val());
