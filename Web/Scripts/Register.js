@@ -8,7 +8,6 @@
     }
 
     $('#btnRegister').click(function () {
-        debugger;
         $(this).ShowProgressIndicator();
 
         var email = $.trim($('#txtEmail').val());
@@ -31,7 +30,6 @@
                 data: param,
                 success: OnSuccess,
                 error: function (xhr, status, error) {
-                    debugger;
                     PopupValidation(error);
                 },
                 complete: function (xhr, status) {
@@ -70,7 +68,7 @@ function OnSuccess(data, status) {
 
         $('#loginToken').val("Y");
 
-        window.location.href = "#/login";
+        window.location.href = "#login";
     }
     else {
         PopupValidation("Invalid username and password");

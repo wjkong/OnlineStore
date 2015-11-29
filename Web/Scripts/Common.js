@@ -166,6 +166,9 @@ function isLogin() {
 }
 
 $(function () {
+    $('.navbar-collapse').click('li', function () {
+        $('.navbar-collapse').collapse('hide');
+    });
 
     $('#hypLogout').click(function () {
         $('#hidEmail').val(emptyStr);
@@ -173,7 +176,7 @@ $(function () {
         $('#hypLogin').show();
         $('#hypLogout').hide();
 
-        window.location.href = "#/home";
+        window.location.href = "#home";
     });
 });
 

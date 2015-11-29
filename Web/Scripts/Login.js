@@ -38,7 +38,6 @@
             });
         }
         else {
-
             var str = [];
 
             if (username.length == 0)
@@ -70,7 +69,7 @@ function OnSuccess(data, status) {
         var email = $.trim($('#txtEmail').val())
        
 
-        window.location.href = "#/home";
+        window.location.href = "#home";
 
         $('#hidEmail').val(email);
         $('#hypRegistration').hide();
