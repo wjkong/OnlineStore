@@ -1,6 +1,8 @@
 ﻿$(function () {
     var userName = getCookie("userName");
 
+    //$('#hidEmail').val("wjkonger@gmail.com");
+
     if (userName != undefined && userName.length > 0) {
         $('#txtUsername').val(userName);
 
@@ -8,7 +10,6 @@
     }
 
     $('#btnLogin').click(function () {
-        debugger;
         $(this).ShowProgressIndicator();
 
         var email = $.trim($('#txtEmail').val());
@@ -66,7 +67,15 @@ function OnSuccess(data, status) {
             setCookie("email", username);
         }
 
-        window.location.href = "#/";
+        var email = $.trim($('#txtEmail').val())
+       
+
+        window.location.href = "#/home";
+
+        $('#hidEmail').val(email);
+        $('#hypRegistration').hide();
+        $('#hypLogin').hide();
+        $('#hypLogout').show();
     }
     else {
         PopupValidation("Invalid username and password");

@@ -10,6 +10,43 @@ var linkText = "<a target=_blank href='{0}'>{1}</a>";
 var mapLink = "<span data-latitude='{0}' data-longitude='{1}' class='map text-info' data-toggle='modal' data-target='#modalMap'><span class='glyphicon glyphicon-map-marker'></span>{2}</span>";
 var imgLink = "<img src='{0}' alt=icon />";
 
+var app = angular.module('onlineStoreApp', ['ngRoute']);
+
+app.config(function ($routeProvider) {
+    $routeProvider
+        // route for the home page
+        .when('/', {
+            templateUrl: 'Pages/home.html',
+            controller: 'mainController'
+        })
+         .when('/home', {
+              templateUrl: 'Pages/home.html',
+              controller: 'mainController'
+          })
+         .when('/login', {
+             templateUrl: 'Pages/login.html',
+             controller: 'loginController'
+         })
+        .when('/logout', {
+            templateUrl: 'Pages/logout.html',
+            controller: 'logoutController'
+        })
+        .when('/registration', {
+            templateUrl: 'Pages/registration.html',
+            controller: 'registerController'
+        })
+        .when('/contact', {
+            templateUrl: 'Pages/contact.html',
+            controller: 'contactController'
+        })
+        .when('/recoverPassword', {
+            templateUrl: 'Pages/recoverPassword.html',
+            controller: 'recoverPasswordController'
+        });
+
+    //$locationProvider.html5Mode(true);
+});
+
 
 (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
@@ -86,34 +123,7 @@ $.fn.ShowProgressIndicator = function () {
                                       .show();
 }
 
-var app = angular.module('onlineStoreApp', ['ngRoute']);
 
-app.config(function ($routeProvider) {
-    $routeProvider
-        // route for the home page
-        .when('/', {
-            templateUrl: 'Pages/home.html',
-            controller: 'mainController'
-        })
-         .when('/login', {
-             templateUrl: 'Pages/login.html',
-             controller: 'loginController'
-         })
-        .when('/registration', {
-            templateUrl: 'Pages/registration.html',
-            controller: 'registerController'
-        })
-        .when('/contact', {
-            templateUrl: 'Pages/contact.html',
-            controller: 'contactController'
-        })
-        .when('/recoverPassword', {
-            templateUrl: 'Pages/recoverPassword.html',
-            controller: 'recoverPasswordController'
-        });
-
-    //$locationProvider.html5Mode(true);
-});
 
 // create the controller and inject Angular's $scope
 app.controller('mainController', function ($scope) {
@@ -123,11 +133,6 @@ app.controller('mainController', function ($scope) {
 
   
 });
-
-
-
-
-
 
 function GetParameterByName(name) {
     name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
@@ -152,5 +157,23 @@ function getCookie(key) {
 }
 
 function isLogin() {
-    return true;
+    var result = false;
+
+    if ($('#hidEmail').val().length != 0)
+        result = true;
+
+    return result;
 }
+
+$(function () {
+
+    $('#hypLogout').click(function () {
+        $('#hidEmail').val(emptyStr);
+        $('#hypRegistration').show();
+        $('#hypLogin').show();
+        $('#hypLogout').hide();
+
+        window.location.href = "#/home";
+    });
+});
+

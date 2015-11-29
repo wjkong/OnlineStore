@@ -42,8 +42,7 @@
         }
         else {
             //grecaptcha.reset();
-            debugger;
-            var str = [];
+             var str = [];
 
             if (email.length == 0)
                 str.push("<span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span>Username is requried<br/>");
@@ -62,7 +61,6 @@
 });
 
 function OnSuccess(data, status) {
-    debugger;
     if (data) {
         if ($("#chkRememberMe").prop('checked')) {
             var username = $.trim($('#txtEmail').val());
