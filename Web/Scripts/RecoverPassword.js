@@ -1,6 +1,6 @@
 ﻿$(function () {
     $('#btnRecover').click(function () {
-        $(this).ShowProgressIndicator();
+         $(this).ShowProgressIndicator();
 
         var email = $.trim($('#txtEmail').val());
 
@@ -19,7 +19,7 @@
                 data: param,
                 success: OnSuccess,
                 error: function (xhr, status, error) {
-                    PopupValidation(error);
+                     PopupValidation(error);
                 },
                 complete: function (xhr, status) {
                     $('.progressIndicator').fadeOut(100).remove();
@@ -49,4 +49,9 @@ function OnSuccess(data, status) {
     else {
         PopupValidation("Invalid Email");
     }
+}
+
+function PopupValidation(content) {
+    $('#modalValidation .modal-body').html("<div class='alert alert-danger'>" + content + "</div>");
+    $('#modalValidation').modal('show');
 }
