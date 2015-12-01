@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="HtmlPage1.html" />
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\OnlineStore.Web.pubxml" />
     <Content Include="Scripts\angular-mocks.js" />
@@ -96,6 +97,7 @@
     <Content Include="Pages\registration.html" />
     <Content Include="Scripts\Common.js" />
     <Content Include="Scripts\Config.js" />
+    <Content Include="Scripts\RecoverPassword.js" />
     <Content Include="Scripts\Register.js" />
     <Content Include="Scripts\Login.js" />
     <Content Include="Web.config" />
