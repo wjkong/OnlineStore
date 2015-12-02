@@ -68,17 +68,20 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\OnlineStore.Web.pubxml" />
-    <Content Include="Scripts\angular-mocks.js" />
-    <Content Include="Scripts\angular-route.js" />
-    <Content Include="Scripts\angular-route.min.js" />
-    <Content Include="Scripts\angular.js" />
-    <Content Include="Scripts\angular.min.js" />
-    <Content Include="Scripts\angular.min.js.map" />
-    <Content Include="Scripts\angular-route.min.js.map" />
-    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
-    <Content Include="Scripts\jquery-2.1.4.js" />
-    <Content Include="Scripts\jquery-2.1.4.min.js" />
-    <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <Content Include="Pages\activation.html" />
+    <Content Include="Pages\myAccount.html" />
+    <Content Include="Scripts\Activation.js" />
+    <Content Include="Scripts\Lib\angular-mocks.js" />
+    <Content Include="Scripts\Lib\angular-route.js" />
+    <Content Include="Scripts\Lib\angular-route.min.js" />
+    <Content Include="Scripts\Lib\angular.js" />
+    <Content Include="Scripts\Lib\angular.min.js" />
+    <Content Include="Scripts\Lib\angular.min.js.map" />
+    <Content Include="Scripts\Lib\angular-route.min.js.map" />
+    <None Include="Scripts\Lib\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\Lib\jquery-2.1.4.js" />
+    <Content Include="Scripts\Lib\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\Lib\jquery-2.1.4.min.map" />
     <Content Include="web.config" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
@@ -104,9 +107,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scripts\Libary\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

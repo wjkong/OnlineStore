@@ -70,10 +70,11 @@ function OnSuccess(data, status) {
 
         window.location.href = "#home";
 
-        $('#hidEmail').val(email);
+        $('#lblEmail').text(email);
         $('#hypRegistration').hide();
         $('#hypLogin').hide();
         $('#hypLogout').show();
+        $('#hypMyAccount').show();
     }
     else {
         PopupValidation("Invalid username and password");

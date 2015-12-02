@@ -31,6 +31,10 @@ app.config(function ($routeProvider) {
             templateUrl: 'Pages/logout.html',
             controller: 'logoutController'
         })
+          .when('/myAccount', {
+              templateUrl: 'Pages/myAccount.html',
+              controller: 'myAccountController'
+          })
         .when('/registration', {
             templateUrl: 'Pages/registration.html',
             controller: 'registerController'
@@ -38,6 +42,10 @@ app.config(function ($routeProvider) {
         .when('/contact', {
             templateUrl: 'Pages/contact.html',
             controller: 'contactController'
+        })
+        .when('/activation', {
+            templateUrl: 'Pages/activation.html',
+            controller: 'activationController'
         })
         .when('/recoverPassword', {
             templateUrl: 'Pages/recoverPassword.html',
@@ -171,10 +179,11 @@ $(function () {
     });
 
     $('#hypLogout').click(function () {
-        $('#hidEmail').val(emptyStr);
+        $('#lblEmail').text(emptyStr);
         $('#hypRegistration').show();
         $('#hypLogin').show();
         $('#hypLogout').hide();
+        $('#hypMyAccount').hide();
 
         window.location.href = "#home";
     });
