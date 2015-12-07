@@ -1,4 +1,7 @@
 ﻿$(function () {
+    debugger;
+    var token = GetParameterByName("token");
+
     var userName = getCookie("userName");
 
     //$('#hidEmail').val("wjkonger@gmail.com");
@@ -70,7 +73,8 @@ function OnSuccess(data, status) {
 
         window.location.href = "#home";
 
-        $('#lblEmail').text(email);
+        setCookie("token", username);
+
         $('#hypRegistration').hide();
         $('#hypLogin').hide();
         $('#hypLogout').show();

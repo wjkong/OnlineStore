@@ -23,7 +23,7 @@ app.config(function ($routeProvider) {
               templateUrl: 'Pages/home.html',
               controller: 'mainController'
           })
-         .when('/login', {
+         .when('/login:token?', {
              templateUrl: 'Pages/login.html',
              controller: 'loginController'
          })
@@ -43,7 +43,7 @@ app.config(function ($routeProvider) {
             templateUrl: 'Pages/contact.html',
             controller: 'contactController'
         })
-        .when('/activation', {
+        .when('/activation:token?', {
             templateUrl: 'Pages/activation.html',
             controller: 'activationController'
         })
@@ -146,7 +146,7 @@ function GetParameterByName(name) {
     name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
     var regexS = "[\\?&]" + name + "=([^&#]*)";
     var regex = new RegExp(regexS);
-    var results = regex.exec(window.location.search);
+    var results = regex.exec(window.location);
     if (results == null)
         return "";
     else
@@ -167,7 +167,9 @@ function getCookie(key) {
 function isLogin() {
     var result = false;
 
-    if ($('#hidEmail').val().length != 0)
+    var token = getCookie("token");
+
+    if (token.val().length != 0)
         result = true;
 
     return result;
@@ -179,7 +181,8 @@ $(function () {
     });
 
     $('#hypLogout').click(function () {
-        $('#lblEmail').text(emptyStr);
+        setCookie("token", emptyStr);
+
         $('#hypRegistration').show();
         $('#hypLogin').show();
         $('#hypLogout').hide();
