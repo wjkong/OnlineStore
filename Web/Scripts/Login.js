@@ -1,5 +1,4 @@
 ﻿$(function () {
-    debugger;
     var token = GetParameterByName("token");
 
     var userName = getCookie("userName");
@@ -7,7 +6,7 @@
     //$('#hidEmail').val("wjkonger@gmail.com");
 
     if (userName != undefined && userName.length > 0) {
-        $('#txtUsername').val(userName);
+        $('#txtEmail').val(userName);
 
         $("#chkRememberMe").prop('checked', true);
     }
@@ -19,7 +18,7 @@
         var password = $.trim($('#txtPassword').val());
    
         if (email.length > 0 && password.length > 0) {
-            var url = apiBaseUrl + "/route/User?action=Login";
+            var url = apiBaseUrl + "/route/User/login";
 
             var param = "{ 'email': '{0}', 'password': '{1}' }";
             param = param.format(email, password);
@@ -66,14 +65,14 @@ function OnSuccess(data, status) {
         if ($("#chkRememberMe").prop('checked')) {
             var username = $.trim($('#txtEmail').val());
 
-            setCookie("email", username);
+            setCookie("userName", username);
         }
 
         var email = $.trim($('#txtEmail').val())
 
         window.location.href = "#home";
 
-        setCookie("token", username);
+        setCookie("authToken", username);
 
         $('#hypRegistration').hide();
         $('#hypLogin').hide();

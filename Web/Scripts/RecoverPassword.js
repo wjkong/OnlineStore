@@ -5,14 +5,14 @@
         var email = $.trim($('#txtEmail').val());
 
         if (email.length > 0) {
-            var url = apiBaseUrl + "/route/User?action=ChangeStatus";
+            var url = apiBaseUrl + "/route/user/update";
 
             var param = "{ 'email': '{0}' }";
             param = param.format(email);
             var str = [];
 
             $.ajax({
-                type: 'PUT',
+                type: 'POST',
                 url: url,
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",

@@ -10,6 +10,7 @@ var linkText = "<a target=_blank href='{0}'>{1}</a>";
 var mapLink = "<span data-latitude='{0}' data-longitude='{1}' class='map text-info' data-toggle='modal' data-target='#modalMap'><span class='glyphicon glyphicon-map-marker'></span>{2}</span>";
 var imgLink = "<img src='{0}' alt=icon />";
 
+
 var app = angular.module('onlineStoreApp', ['ngRoute']);
 
 app.config(function ($routeProvider) {
@@ -167,7 +168,7 @@ function getCookie(key) {
 function isLogin() {
     var result = false;
 
-    var token = getCookie("token");
+    var token = getCookie("authToken");
 
     if (token.val().length != 0)
         result = true;
@@ -181,7 +182,7 @@ $(function () {
     });
 
     $('#hypLogout').click(function () {
-        setCookie("token", emptyStr);
+        setCookie("authToken", emptyStr);
 
         $('#hypRegistration').show();
         $('#hypLogin').show();
