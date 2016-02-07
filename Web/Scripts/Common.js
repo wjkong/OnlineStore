@@ -44,8 +44,8 @@ app.config(function ($routeProvider) {
             templateUrl: 'Pages/contact.html',
             controller: 'contactController'
         })
-        .when('/activation:token?', {
-            templateUrl: 'Pages/activation.html',
+        .when('/activate:token?', {
+            templateUrl: 'Pages/Activate.html',
             controller: 'activationController'
         })
         .when('/recoverPassword', {

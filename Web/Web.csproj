@@ -69,7 +69,9 @@
     <Content Include="Images\loading.gif" />
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\OnlineStore.Web.pubxml" />
+    <Content Include="Pages\Activate.html" />
     <Content Include="Pages\myAccount.html" />
+    <Content Include="Scripts\Activate.js" />
     <Content Include="Scripts\Lib\angular-mocks.js" />
     <Content Include="Scripts\Lib\angular-route.js" />
     <Content Include="Scripts\Lib\angular-route.min.js" />

@@ -18,6 +18,7 @@
         var url = apiBaseUrl + "/route/User/new";
 
         var param = "{ 'Email': '{0}', 'Password': '{1}', 'ConfirmPassword': '{2}' }";
+
         param = param.format(email, password, confirmPwd);
         var str = [];
 
@@ -42,12 +43,7 @@
 
 function OnSuccess(data, status) {
     if (data.Success) {
-        if ($("#chkRememberMe").prop('checked')) {
-            var username = $.trim($('#txtEmail').val());
-
-            setCookie("email", username);
-        }
-
+       
         $('#loginToken').val("Y");
 
         window.location.href = "#login";
