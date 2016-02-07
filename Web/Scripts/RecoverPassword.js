@@ -1,53 +1,46 @@
 ﻿$(function () {
     $('#btnRecover').click(function () {
-         $(this).ShowProgressIndicator();
+        $(this).ShowProgressIndicator();
 
         var email = $.trim($('#txtEmail').val());
 
-        if (email.length > 0) {
-            var url = apiBaseUrl + "/route/user/update";
+        var url = apiBaseUrl + "/route/user/recoverPwd";
 
-            var param = "{ 'email': '{0}' }";
-            param = param.format(email);
-            var str = [];
+        var param = "{ 'Email': '{0}' }";
 
-            $.ajax({
-                type: 'POST',
-                url: url,
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                data: param,
-                success: OnSuccess,
-                error: function (xhr, status, error) {
-                     PopupValidation(error);
-                },
-                complete: function (xhr, status) {
-                    $('.progressIndicator').fadeOut(100).remove();
-                }
-            });
-        }
-        else {
-            var str = [];
+        param = param.format(email);
+        var str = [];
 
-            if (email.length == 0)
-                str.push("<span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span>Username is requried<br/>");
-
-            $('.progressIndicator').fadeOut(100).remove();
-
-            PopupValidation(str.join(emptyStr));
-        }
+        $.ajax({
+            type: 'POST',
+            url: url,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: param,
+            success: OnSuccess,
+            error: function (xhr, status, error) {
+                PopupValidation(error);
+            },
+            complete: function (xhr, status) {
+                $('.progressIndicator').fadeOut(100).remove();
+            }
+        });
     });
 });
 
 function OnSuccess(data, status) {
-    if (data) {
-        var email = $.trim($('#txtEmail').val())
-
-        window.location.href = "#login";
-     
+    if (data.Success) {
+        $('#txtEmail').val(emptyStr);
+        PopupSuccess("A temprory password has been sent to you");
     }
     else {
-        PopupValidation("Invalid Email");
+        var str = [];
+
+        $.each(data.ErrorList, function (i, val) {
+            str.push(val.Message);
+        });
+
+        PopupValidation(str.join("<br/>"));
     }
 }
 
@@ -55,3 +48,9 @@ function PopupValidation(content) {
     $('#modalValidation .modal-body').html("<div class='alert alert-danger'>" + content + "</div>");
     $('#modalValidation').modal('show');
 }
+
+function PopupSuccess(content) {
+    $('#modalSuccess .modal-body').html("<div class='alert alert-success'>" + content + "</div>");
+    $('#modalSuccess').modal('show');
+}
+

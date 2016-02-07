@@ -1,12 +1,4 @@
 ﻿$(function () {
-    var userName = getCookie("userName");
-
-    if (userName != undefined && userName.length > 0) {
-        $('#txtUsername').val(userName);
-
-        $("#chkRememberMe").prop('checked', true);
-    }
-
     $('#btnRegister').click(function () {
         $(this).ShowProgressIndicator();
 
@@ -15,7 +7,7 @@
         var confirmPwd = $.trim($('#txtConfirmedPassword').val());
         //var response = grecaptcha.getResponse();
     
-        var url = apiBaseUrl + "/route/User/new";
+        var url = apiBaseUrl + "/route/user/new";
 
         var param = "{ 'Email': '{0}', 'Password': '{1}', 'ConfirmPassword': '{2}' }";
 
